@@ -1,0 +1,3038 @@
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateCategories (20101119222400)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101119222400')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("categories")
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Nov 19 23:24:27 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 49ms (Views: 9.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Fri Nov 19 23:24:30 +0100 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (62.1ms)
+Rendered categories/new.html.erb within layouts/application (67.1ms)
+Completed 200 OK in 77ms (Views: 73.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Fri Nov 19 23:24:42 +0100 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Technology", "description"=>""}, "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓"}
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "categories" ("created_at", "description", "name", "updated_at") VALUES ('2010-11-19 22:24:42.476768', '', 'Technology', '2010-11-19 22:24:42.476768')[0m
+Redirected to http://localhost:3000/categories/1
+Completed 302 Found in 36ms
+
+
+Started GET "/categories/1" for 127.0.0.1 at Fri Nov 19 23:24:42 +0100 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 20ms (Views: 12.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Nov 19 23:24:47 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 18ms (Views: 12.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Fri Nov 19 23:24:48 +0100 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (6.0ms)
+Rendered categories/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 20ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Fri Nov 19 23:24:56 +0100 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Clothes", "description"=>""}, "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓"}
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "description", "name", "updated_at") VALUES ('2010-11-19 22:24:56.929433', '', 'Clothes', '2010-11-19 22:24:56.929433')
+Redirected to http://localhost:3000/categories/2
+Completed 302 Found in 15ms
+
+
+Started GET "/categories/2" for 127.0.0.1 at Fri Nov 19 23:24:56 +0100 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 2) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 18ms (Views: 11.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Nov 19 23:25:06 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 20ms (Views: 13.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/categories/1" for 127.0.0.1 at Fri Nov 19 23:27:48 +0100 2010
+  Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "id"=>"1"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "categories" WHERE ("categories"."id" = 1)
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 13ms
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Nov 19 23:27:48 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/categories/2" for 127.0.0.1 at Fri Nov 19 23:27:51 +0100 2010
+  Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "id"=>"2"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "categories" WHERE ("categories"."id" = 2)[0m
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 13ms
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Nov 19 23:27:51 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 13ms (Views: 8.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Fri Nov 19 23:29:21 +0100 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.8ms)
+Rendered categories/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 20ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Fri Nov 19 23:29:23 +0100 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"", "description"=>""}, "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = '') LIMIT 1[0m
+Rendered categories/_form.html.erb (5.0ms)
+Rendered categories/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 52ms (Views: 15.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Fri Nov 19 23:30:47 +0100 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Technology", "description"=>""}, "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Technology') LIMIT 1
+Rendered categories/_form.html.erb (4.0ms)
+Rendered categories/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 26ms (Views: 13.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Fri Nov 19 23:31:16 +0100 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Technology", "description"=>"Geeks like gadgets"}, "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Technology') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "description", "name", "updated_at") VALUES ('2010-11-19 22:31:16.684484', 'Geeks like gadgets', 'Technology', '2010-11-19 22:31:16.684484')
+Redirected to http://localhost:3000/categories/3
+Completed 302 Found in 15ms
+
+
+Started GET "/categories/3" for 127.0.0.1 at Fri Nov 19 23:31:17 +0100 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 19ms (Views: 11.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Nov 19 23:31:21 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 18ms (Views: 12.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Fri Nov 19 23:31:22 +0100 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.8ms)
+Rendered categories/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 20ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Fri Nov 19 23:31:38 +0100 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Clothes", "description"=>"Wearable things"}, "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Clothes') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "description", "name", "updated_at") VALUES ('2010-11-19 22:31:38.186733', 'Wearable things', 'Clothes', '2010-11-19 22:31:38.186733')
+Redirected to http://localhost:3000/categories/4
+Completed 302 Found in 15ms
+
+
+Started GET "/categories/4" for 127.0.0.1 at Fri Nov 19 23:31:38 +0100 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 4) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 20ms (Views: 12.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Nov 19 23:31:40 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 20ms (Views: 13.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Fri Nov 19 23:31:43 +0100 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.9ms)
+Rendered categories/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 85ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Fri Nov 19 23:31:54 +0100 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Technology", "description"=>"Bla bla"}, "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Technology') LIMIT 1[0m
+Rendered categories/_form.html.erb (3.9ms)
+Rendered categories/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 26ms (Views: 13.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Nov 19 23:31:59 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 20ms (Views: 13.4ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.9ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101119222400')[0m
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (2.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.8ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCategories (20101119222400)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101119222400')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Technology') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("created_at", "description", "name", "updated_at") VALUES ('2010-11-19 22:39:02.543810', 'Geeks love gadgets, are yo geek?', 'Technology', '2010-11-19 22:39:02.543810')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Clothes') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("created_at", "description", "name", "updated_at") VALUES ('2010-11-19 22:39:02.550896', 'Wereathable things', 'Clothes', '2010-11-19 22:39:02.550896')[0m
+
+
+Started GET "/categories" for 127.0.0.1 at Fri Nov 19 23:39:15 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 21ms (Views: 14.6ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (3.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101119222400')[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCategories (20101119222400)
+Migrating to DeviseCreateUsers (20101119232737)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101119232737')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("categories")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+
+
+Started GET "/categories" for 127.0.0.1 at Sat Nov 20 00:33:51 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 41ms (Views: 16.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Sat Nov 20 00:34:31 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 21ms (Views: 14.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Sat Nov 20 00:37:15 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 22ms (Views: 14.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Sat Nov 20 00:37:26 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 89ms (Views: 14.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Sat Nov 20 00:37:30 +0100 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (6.0ms)
+Rendered categories/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 21ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Sat Nov 20 00:38:50 +0100 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (5.8ms)
+Rendered categories/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 21ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Sat Nov 20 00:38:54 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 20ms (Views: 13.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sing_up" for 127.0.0.1 at Sat Nov 20 00:40:55 +0100 2010
+
+ActionController::RoutingError (No route matches "/users/sing_up"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCategories (20101119222400)
+Migrating to DeviseCreateUsers (20101119232737)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Sat Nov 20 00:41:33 +0100 2010
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered /Library/Ruby/Gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (1.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/devise-1.1.3/app/views/devise/registrations/new.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 32ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sat Nov 20 00:41:54 +0100 2010
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"ion"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('ion')) LIMIT 1[0m
+Rendered /Library/Ruby/Gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (1.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/devise-1.1.3/app/views/devise/registrations/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 522ms (Views: 17.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sat Nov 20 00:42:13 +0100 2010
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"ion@suzzlo.org"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('ion@suzzlo.org')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "password_salt", "remember_created_at", "remember_token", "reset_password_token", "sign_in_count", "updated_at") VALUES ('2010-11-19 23:42:13.410793', NULL, NULL, 'ion@suzzlo.org', '$2a$10$32/ApHSGd1Xxvx05tjiY4OIiYMMgXWvWEVq8WTqRuRlAf5sIvwmia', NULL, NULL, '$2a$10$32/ApHSGd1Xxvx05tjiY4O', NULL, NULL, NULL, 0, '2010-11-19 23:42:13.410793')[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2010-11-19 23:42:13.418486', "current_sign_in_ip" = '127.0.0.1', "last_sign_in_at" = '2010-11-19 23:42:13.418486', "last_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2010-11-19 23:42:13.418976' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 163ms
+
+
+Started GET "/categories" for 127.0.0.1 at Sat Nov 20 00:42:23 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 21ms (Views: 14.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Sat Nov 20 00:43:30 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 56ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sat Nov 20 00:44:02 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered /Library/Ruby/Gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (1.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 32ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Sat Nov 20 00:44:06 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ion@suzzlo.org"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'ion@suzzlo.org') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2010-11-19 23:44:07.069589', "sign_in_count" = 2, "updated_at" = '2010-11-19 23:44:07.070209' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 116ms
+
+
+Started GET "/categories" for 127.0.0.1 at Sat Nov 20 00:59:21 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered categories/index.html.erb within layouts/application (352.5ms)
+Completed   in 366ms
+
+ActionView::Template::Error (undefined method `show_title?' for #<#<Class:0x1033a99a0>:0x1033a68b8>):
+    22: 			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+    23: 		<% end %>
+    24: 		
+    25: 		<% if show_title? %>
+    26: 			<h1><%= yield(:title) %></h1>
+    27: 		<% end %>
+    28: 
+  app/views/layouts/application.html.erb:25:in `_app_views_layouts_application_html_erb__393032906_2174557720_0'
+  app/controllers/categories_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (189.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (198.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Sat Nov 20 01:00:11 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered categories/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 41ms (Views: 34.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 01:00:11 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at Sat Nov 20 01:04:04 +0100 2010
+
+ActionController::RoutingError (No route matches "/users"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Sat Nov 20 01:04:12 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered categories/index.html.erb within layouts/application (45.6ms)
+Completed 200 OK in 77ms (Views: 53.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 01:04:12 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCategories (20101119222400)
+Migrating to DeviseCreateUsers (20101119232737)
+Migrating to CreateThings (20101120000931)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCategories (20101119222400)
+Migrating to DeviseCreateUsers (20101119232737)
+Migrating to CreateThings (20101120000931)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCategories (20101119222400)
+Migrating to DeviseCreateUsers (20101119232737)
+Migrating to CreateThings (20101120001029)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "things" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "price" float, "category_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101120001029')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("things")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+
+
+Started GET "/things" for 127.0.0.1 at Sat Nov 20 01:10:54 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mThing Load (0.4ms)[0m  SELECT "things".* FROM "things"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered things/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 27ms (Views: 21.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 01:10:54 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/things/new" for 127.0.0.1 at Sat Nov 20 01:11:01 +0100 2010
+  Processing by ThingsController#new as HTML
+Rendered things/_form.html.erb (8.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered things/new.html.erb within layouts/application (106.0ms)
+Completed 200 OK in 118ms (Views: 113.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 01:11:02 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/things" for 127.0.0.1 at Sat Nov 20 01:11:13 +0100 2010
+  Processing by ThingsController#create as HTML
+  Parameters: {"commit"=>"Create Thing", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "thing"=>{"price"=>"22", "name"=>"222", "category_id"=>"1", "description"=>"22222"}}
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "things" ("category_id", "created_at", "description", "name", "price", "updated_at") VALUES (1, '2010-11-20 00:11:13.811482', '22222', '222', 22.0, '2010-11-20 00:11:13.811482')
+Redirected to http://localhost:3000/things/1
+Completed 302 Found in 18ms
+
+
+Started GET "/things/1" for 127.0.0.1 at Sat Nov 20 01:11:13 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things" WHERE ("things"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered things/show.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 46ms (Views: 38.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 01:11:13 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/things" for 127.0.0.1 at Sat Nov 20 01:11:17 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mThing Load (0.5ms)[0m  SELECT "things".* FROM "things"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered things/index.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 39ms (Views: 32.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 01:11:17 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Sat Nov 20 01:11:26 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms
+
+
+Started GET "/things" for 127.0.0.1 at Sat Nov 20 01:11:31 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mThing Load (0.5ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 30ms (Views: 23.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 01:11:31 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/things" for 127.0.0.1 at Sat Nov 20 01:14:03 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mThing Load (0.5ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 29ms (Views: 22.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 01:14:04 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/things" for 127.0.0.1 at Sat Nov 20 01:14:58 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 40ms (Views: 18.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 01:14:58 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/things" for 127.0.0.1 at Sat Nov 20 01:15:01 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mThing Load (0.5ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 29ms (Views: 23.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 01:15:01 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (81.7ms)
+
+
+Started GET "/things" for 127.0.0.1 at Sat Nov 20 11:10:34 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mThing Load (0.4ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 23ms (Views: 16.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Sat Nov 20 11:10:34 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:12:24 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered /Library/Ruby/Gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (1.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 66ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:12:25 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:12:27 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ion@suzzlo.org"}}
+  [1m[36mUser Load (19.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'ion@suzzlo.org') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2010-11-23 12:12:28.200387', "last_sign_in_at" = '2010-11-19 23:44:07.069589', "sign_in_count" = 3, "updated_at" = '2010-11-23 12:12:28.201074' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 394ms
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 13:12:33 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mThing Load (0.5ms)[0m  [1mSELECT "things".* FROM "things"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered things/index.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 56ms (Views: 33.9ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:12:33 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at Tue Nov 23 13:20:42 +0100 2010
+  Processing by Rails::InfoController#properties as */*
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Rendered inline template (0.4ms)
+Completed 200 OK in 136ms (Views: 1.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 13:21:11 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mThing Load (0.5ms)[0m  SELECT "things".* FROM "things"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered things/index.html.erb within layouts/application (44.7ms)
+Completed 200 OK in 137ms (Views: 51.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:21:11 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 13:21:14 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Completed   in 103ms
+
+NameError (undefined local variable or method `root_path' for #<Devise::SessionsController:0x1039437d0>):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (139.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (147.6ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 13:21:26 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed   in 48ms
+
+NameError (undefined local variable or method `root_path' for #<Devise::SessionsController:0x1039565b0>):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (137.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (144.4ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 13:21:29 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Completed   in 46ms
+
+NameError (undefined local variable or method `root_path' for #<Devise::SessionsController:0x103990698>):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (134.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (196.0ms)
+
+
+Started GET "/users/" for 127.0.0.1 at Tue Nov 23 13:21:33 +0100 2010
+
+ActionController::RoutingError (No route matches "/users"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Nov 23 13:21:37 +0100 2010
+
+ActionController::RoutingError (No route matches "/users"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 13:21:45 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mThing Load (0.5ms)[0m  [1mSELECT "things".* FROM "things"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered things/index.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 41ms (Views: 34.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:21:45 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 13:26:16 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 39ms (Views: 15.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:26:16 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 13:26:19 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 38ms (Views: 15.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:26:20 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 13:26:22 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed   in 111ms
+
+NameError (undefined local variable or method `root_path' for #<Devise::SessionsController:0x103399640>):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (197.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (203.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:36:13 +0100 2010
+
+ActionController::RoutingError (No route matches "/users/sign_in"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_in/" for 127.0.0.1 at Tue Nov 23 13:36:19 +0100 2010
+
+ActionController::RoutingError (No route matches "/users/sign_in"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:36:22 +0100 2010
+
+ActionController::RoutingError (No route matches "/users/sign_in"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:36:40 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 44ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:36:45 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 13:36:56 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Tue Nov 23 13:37:08 +0100 2010
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/registrations/new.html.erb within layouts/application (222.5ms)
+Completed   in 238ms
+
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0x1035e9fd0>:0x1035e7960>):
+    11: 	<div id="container">
+    12: 	
+    13: 		<div id="user_nav">
+    14: 			<% if user_signed_in? %>
+    15: 				<%= current_user.email %> | <%= link_to "Sign out" , destroy_user_session_path %>
+    16: 			<% else %>
+    17: 				<%= link_to "Sign up" , new_user_registration_path %> | <%= link_to "Sign in" , new_user_session_path %>
+  app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__393032906_2175719880_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (123.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (130.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:37:59 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (209.1ms)
+Completed   in 225ms
+
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0x1036517e8>:0x103649fe8>):
+    11: 	<div id="container">
+    12: 	
+    13: 		<div id="user_nav">
+    14: 			<% if user_signed_in? %>
+    15: 				<%= current_user.email %> | <%= link_to "Sign out" , destroy_user_session_path %>
+    16: 			<% else %>
+    17: 				<%= link_to "Sign up" , new_user_registration_path %> | <%= link_to "Sign in" , new_user_session_path %>
+  app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__393032906_2175931940_0'
+  app/controllers/categories_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (123.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (130.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:38:17 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (201.3ms)
+Completed   in 275ms
+
+ActionView::Template::Error (undefined method `user_signed_in?' for #<#<Class:0x10399f3c8>:0x103998528>):
+    11: 	<div id="container">
+    12: 	
+    13: 		<div id="user_nav">
+    14: 			<% if user_signed_in? %>
+    15: 				<%= current_user.email %> | <%= link_to "Sign out" , destroy_user_session_path %>
+    16: 			<% else %>
+    17: 				<%= link_to "Sign up" , new_user_registration_path %> | <%= link_to "Sign in" , new_user_session_path %>
+  app/views/layouts/application.html.erb:14:in `_app_views_layouts_application_html_erb__393032906_2177669220_0'
+  app/controllers/categories_controller.rb:7:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (123.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (129.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:38:39 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 104ms (Views: 18.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:38:39 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:38:43 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 31ms (Views: 24.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:38:43 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Tue Nov 23 13:38:57 +0100 2010
+  Processing by CategoriesController#new as HTML
+Rendered categories/_form.html.erb (6.1ms)
+Rendered categories/new.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 73ms (Views: 67.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:38:57 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:39:00 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 31ms (Views: 23.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:39:00 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:40:28 +0100 2010
+  Processing by CategoriesController#index as HTML
+Completed   in 7ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:40:28 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 34ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:40:28 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:40:38 +0100 2010
+  Processing by CategoriesController#index as HTML
+Completed   in 7ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:40:38 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 31ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:40:39 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:40:43 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ion@suzzlo.org"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'ion@suzzlo.org') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2010-11-23 12:40:43.606488', "last_sign_in_at" = '2010-11-23 12:12:28.200387', "sign_in_count" = 4, "updated_at" = '2010-11-23 12:40:43.607199' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 165ms
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:40:43 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 114ms (Views: 16.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:40:43 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at Tue Nov 23 13:40:50 +0100 2010
+  Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered categories/_form.html.erb (6.2ms)
+Rendered categories/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 41ms (Views: 17.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:40:50 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/categories" for 127.0.0.1 at Tue Nov 23 13:41:01 +0100 2010
+  Processing by CategoriesController#create as HTML
+  Parameters: {"commit"=>"Create Category", "category"=>{"name"=>"Test Category", "description"=>"Blabla"}, "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Test Category') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "description", "name", "updated_at") VALUES ('2010-11-23 12:41:01.371628', 'Blabla', 'Test Category', '2010-11-23 12:41:01.371628')
+Redirected to http://localhost:3000/categories/3
+Completed 302 Found in 49ms
+
+
+Started GET "/categories/3" for 127.0.0.1 at Tue Nov 23 13:41:01 +0100 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 49ms (Views: 21.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:41:01 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:41:04 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 42ms (Views: 17.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:41:04 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 13:41:08 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed   in 106ms
+
+NameError (undefined local variable or method `root_path' for #<Devise::SessionsController:0x1034c5028>):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (129.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (194.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:42:13 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 132ms (Views: 17.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:42:13 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 13:42:19 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 13:44:06 +0100 2010
+  Processing by CategoriesController#index as HTML
+Completed   in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:44:06 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 33ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:44:06 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:45:36 +0100 2010
+  Processing by CategoriesController#index as HTML
+Completed   in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:45:36 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 31ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:45:36 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:45:39 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ion@suzzlo.org"}}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'ion@suzzlo.org') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-11-23 12:45:39.778730', "last_sign_in_at" = '2010-11-23 12:40:43.606488', "sign_in_count" = 5, "updated_at" = '2010-11-23 12:45:39.779367' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 154ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:45:39 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 43ms (Views: 17.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:45:40 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 13:45:51 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:45:51 +0100 2010
+  Processing by CategoriesController#index as HTML
+Completed   in 8ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:45:51 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 37ms (Views: 18.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:45:51 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:46:29 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ion@suzzlo.org"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'ion@suzzlo.org') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2010-11-23 12:46:29.389438', "last_sign_in_at" = '2010-11-23 12:45:39.778730', "sign_in_count" = 6, "updated_at" = '2010-11-23 12:46:29.390083' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 108ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:46:29 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.3ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 42ms (Views: 17.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:46:29 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:46:32 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 40ms (Views: 15.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stylesheets/application.css" for 127.0.0.1 at Tue Nov 23 13:46:32 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:47:13 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 38ms (Views: 15.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 13:47:37 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:47:37 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 7ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:47:37 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 97ms (Views: 16.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Tue Nov 23 13:47:41 +0100 2010
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/registrations/new.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 32ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Nov 23 13:47:59 +0100 2010
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"test@suzzlo.org"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('test@suzzlo.org')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "password_salt", "remember_created_at", "remember_token", "reset_password_token", "sign_in_count", "updated_at") VALUES ('2010-11-23 12:47:59.244606', NULL, NULL, 'test@suzzlo.org', '$2a$10$2HXr53R0OLS5ElrF3Yn.UOhRBUMqFtFyXHYsVfMo/Hx2IepkcAVnK', NULL, NULL, '$2a$10$2HXr53R0OLS5ElrF3Yn.UO', NULL, NULL, NULL, 0, '2010-11-23 12:47:59.244606')[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2010-11-23 12:47:59.250180', "current_sign_in_ip" = '127.0.0.1', "last_sign_in_at" = '2010-11-23 12:47:59.250180', "last_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2010-11-23 12:47:59.250652' WHERE ("users"."id" = 2)
+Redirected to http://localhost:3000/
+Completed 302 Found in 121ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:47:59 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 39ms (Views: 15.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:50:45 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 40ms (Views: 16.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:51:34 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 38ms (Views: 15.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:52:11 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 105ms (Views: 15.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:53:08 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 38ms (Views: 15.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:53:34 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 46ms (Views: 15.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 13:54:09 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:54:09 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 7ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:54:09 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 31ms (Views: 16.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Tue Nov 23 13:54:17 +0100 2010
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/registrations/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 101ms (Views: 22.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:54:20 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 31ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 13:54:25 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 7ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:54:25 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 101ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Nov 23 13:59:41 +0100 2010
+
+NameError (undefined local variable or method `path_names' for #<ActionDispatch::Routing::Mapper:0x1038d61f8>):
+  config/routes.rb:3
+  config/routes.rb:1
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:00:40 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 14:00:40 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 36ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Nov 23 14:00:45 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "email"=>"ion@suzzlo.org"}}
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'ion@suzzlo.org') LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."remember_token" = '_DiRdZzUI1sdyRpYzJGT') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "remember_created_at" = '2010-11-23 13:00:46.066523', "remember_token" = '_DiRdZzUI1sdyRpYzJGT', "updated_at" = '2010-11-23 13:00:46.066838' WHERE ("users"."id" = 1)
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-11-23 13:00:46.146414', "last_sign_in_at" = '2010-11-23 12:46:29.389438', "sign_in_count" = 7, "updated_at" = '2010-11-23 13:00:46.147062' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 227ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:00:46 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 42ms (Views: 16.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/things/new" for 127.0.0.1 at Tue Nov 23 14:00:57 +0100 2010
+  Processing by ThingsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered things/_form.html.erb (9.4ms)
+Rendered things/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 129ms (Views: 39.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/things" for 127.0.0.1 at Tue Nov 23 14:01:06 +0100 2010
+  Processing by ThingsController#create as HTML
+  Parameters: {"commit"=>"Create Thing", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "thing"=>{"price"=>"", "name"=>"llllalalla", "category_id"=>"", "description"=>"lalllalalala\r\n"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("category_id", "created_at", "description", "name", "price", "updated_at") VALUES (NULL, '2010-11-23 13:01:06.577270', 'lalllalalala
+', 'llllalalla', NULL, '2010-11-23 13:01:06.577270')
+Redirected to http://localhost:3000/things/2
+Completed 302 Found in 33ms
+
+
+Started GET "/things/2" for 127.0.0.1 at Tue Nov 23 14:01:06 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things" WHERE ("things"."id" = 2) LIMIT 1
+Rendered things/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 50ms (Views: 25.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:01:09 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.3ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 40ms (Views: 16.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/things/2" for 127.0.0.1 at Tue Nov 23 14:01:15 +0100 2010
+  Processing by ThingsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things" WHERE ("things"."id" = 2) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "things" WHERE ("things"."id" = 2)[0m
+Redirected to http://localhost:3000/things
+Completed 302 Found in 32ms
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:01:15 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 39ms (Views: 15.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 14:01:31 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "remember_created_at" = NULL, "remember_token" = NULL, "updated_at" = '2010-11-23 13:01:31.601028' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:01:31 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 81ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 14:01:31 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 32ms (Views: 16.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/register" for 127.0.0.1 at Tue Nov 23 14:01:34 +0100 2010
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/registrations/new.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 32ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 14:04:49 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 32ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Nov 23 14:04:52 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "email"=>"ion@suzzlo.org"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'ion@suzzlo.org') LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."remember_token" = 'LfY8FL7FiC9V9KNfGm3b') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "remember_created_at" = '2010-11-23 13:04:52.339212', "remember_token" = 'LfY8FL7FiC9V9KNfGm3b', "updated_at" = '2010-11-23 13:04:52.339504' WHERE ("users"."id" = 1)
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-11-23 13:04:52.344141', "last_sign_in_at" = '2010-11-23 13:00:46.146414', "sign_in_count" = 8, "updated_at" = '2010-11-23 13:04:52.344668' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 120ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:04:52 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 43ms (Views: 17.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/things/1" for 127.0.0.1 at Tue Nov 23 14:04:55 +0100 2010
+  Processing by ThingsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things" WHERE ("things"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "things" WHERE ("things"."id" = 1)
+Redirected to http://localhost:3000/things
+Completed 302 Found in 33ms
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:04:55 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 39ms (Views: 10.4ms | ActiveRecord: 1.2ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateCategories (20101119222400)
+Migrating to DeviseCreateUsers (20101119232737)
+Migrating to CreateThings (20101120001029)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("things")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 14:08:31 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "remember_created_at" = NULL, "remember_token" = NULL, "updated_at" = '2010-11-23 13:08:31.330998' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 41ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:08:31 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 9ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 14:08:31 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 102ms (Views: 83.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Nov 23 14:08:34 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ion@suzzlo.org"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'ion@suzzlo.org') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-11-23 13:08:34.415643', "last_sign_in_at" = '2010-11-23 13:04:52.344141', "sign_in_count" = 9, "updated_at" = '2010-11-23 13:08:34.416280' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 124ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:08:34 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 53ms (Views: 10.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/things/new" for 127.0.0.1 at Tue Nov 23 14:08:37 +0100 2010
+  Processing by ThingsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered things/_form.html.erb (8.7ms)
+Rendered things/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 47ms (Views: 20.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/things" for 127.0.0.1 at Tue Nov 23 14:08:44 +0100 2010
+  Processing by ThingsController#create as HTML
+  Parameters: {"commit"=>"Create Thing", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "thing"=>{"price"=>"", "name"=>"IonThing", "category_id"=>"", "description"=>""}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("category_id", "created_at", "description", "name", "price", "updated_at") VALUES (NULL, '2010-11-23 13:08:44.306465', '', 'IonThing', NULL, '2010-11-23 13:08:44.306465')
+Redirected to http://localhost:3000/things/3
+Completed 302 Found in 102ms
+
+
+Started GET "/things/3" for 127.0.0.1 at Tue Nov 23 14:08:44 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1
+Rendered things/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 51ms (Views: 15.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:08:48 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 109ms (Views: 15.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things/3" for 127.0.0.1 at Tue Nov 23 14:08:52 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1
+Rendered things/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 41ms (Views: 13.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:08:53 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 116ms (Views: 15.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Tue Nov 23 14:08:55 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:08:55 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 9ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Tue Nov 23 14:08:55 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 111ms (Views: 17.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Tue Nov 23 14:09:04 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test@suzzlo.org"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'test@suzzlo.org') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-11-23 13:09:04.564942', "sign_in_count" = 2, "updated_at" = '2010-11-23 13:09:04.565597' WHERE ("users"."id" = 2)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 117ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:09:04 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.3ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (76.6ms)
+Completed 200 OK in 114ms (Views: 83.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:12:07 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 42ms (Views: 14.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:12:56 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 42ms (Views: 15.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:13:38 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 108ms (Views: 15.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Nov 23 14:14:58 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 42ms (Views: 15.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:15:02 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 43ms (Views: 15.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:15:24 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 107ms (Views: 16.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:15:32 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 42ms (Views: 15.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:17:12 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 44ms (Views: 16.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:19:49 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 107ms (Views: 16.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:20:29 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 42ms (Views: 15.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:21:12 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 45ms (Views: 16.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:22:03 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 44ms (Views: 16.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:22:17 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 107ms (Views: 16.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:22:51 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 42ms (Views: 15.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:23:08 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 43ms (Views: 16.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:23:35 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 108ms (Views: 16.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:23:37 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (76.0ms)
+Completed 200 OK in 109ms (Views: 82.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:25:02 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 43ms (Views: 15.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:25:13 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 42ms (Views: 15.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:25:15 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (77.4ms)
+Completed 200 OK in 109ms (Views: 84.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:25:18 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 43ms (Views: 16.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:26:00 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+ERROR: compiling _app_views_layouts_application_html_erb__393032906_2174299520_0 RAISED compile error
+/Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:24: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...ink_to "Things", path_to thing );@output_buffer.safe_concat(...
+                              ^
+/Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:25: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...Categories",  path_to category );@output_buffer.safe_concat(...
+                              ^
+/Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:29: syntax error, unexpected kDO_BLOCK, expecting kEND
+');@output_buffer.append_if_string= 		 flash.each do |name, msg| 
+                                    		              ^
+/Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:29: syntax error, unexpected '|', expecting '='
+');@output_buffer.append_if_string= 		 flash.each do |name, msg| 
+                                    		                          ^
+/Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:40: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _app_views_layouts_application_html_erb__393032906_2174299520_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "layouts/application";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>');@output_buffer.append= ( yield(:title) || "Untitled");@output_buffer.safe_concat('</title>
+	');@output_buffer.append= (stylesheet_link_tag 'application' );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	');@output_buffer.append= ( javascript_include_tag :defaults );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	');@output_buffer.append= ( csrf_meta_tag );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	');@output_buffer.append= ( yield (:head) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</head>
+<body>
+	<div id="container">
+	
+		<!-- Session options -->
+		<div id="user_nav">
+');			 if user_signed_in? 
+@output_buffer.safe_concat('				');@output_buffer.append= ( current_user.email );@output_buffer.safe_concat(' | ');@output_buffer.append= ( link_to "Sign out" , destroy_user_session_path );@output_buffer.safe_concat('
+');			 else 
+@output_buffer.safe_concat('				');@output_buffer.append= ( link_to "Sign up" , new_user_registration_path );@output_buffer.safe_concat(' | ');@output_buffer.append= ( link_to "Sign in" , new_user_session_path );@output_buffer.safe_concat('
+');			 end 
+@output_buffer.safe_concat('		</div>
+	
+		<!-- User menu options -->
+		<div id="user_menu">
+			');@output_buffer.append= ( link_to "Things", path_to thing );@output_buffer.safe_concat(' __
+			');@output_buffer.append= ( link_to "Categories",  path_to category );@output_buffer.safe_concat(' __
+		</div>
+	
+	
+');@output_buffer.append_if_string= 		 flash.each do |name, msg| 
+@output_buffer.safe_concat('			');@output_buffer.append= ( content_tag :div, msg, :id => "flash_#{name}" );@output_buffer.safe_concat('
+');		 end 
+@output_buffer.safe_concat('		
+		
+
+    	');@output_buffer.append= ( yield );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	</div>
+</body>
+</html>
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:40:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/template.rb:134:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications.rb:54:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/template.rb:127:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/render/layouts.rb:80:in `_render_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/render/rendering.rb:62:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_view/render/rendering.rb:26:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/rendering.rb:92:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/rendering.rb:17:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/mime_responds.rb:261:in `retrieve_response_from_mimes'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/Users/ion/Development/projects/100things/app/controllers/things_controller.rb:9:in `index'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/base.rb:150:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:440:in `_run__1220012276__process_action__199225275__callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:409:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:93:in `send'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/notifications.rb:52:in `instrument'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/base.rb:119:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/abstract_controller/rendering.rb:40:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal.rb:133:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_controller/metal.rb:173:in `action'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Library/Ruby/Gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Library/Ruby/Gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:35:in `call'
+/Library/Ruby/Gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+/Library/Ruby/Gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:34:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/cookies.rb:287:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/query_cache.rb:32:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/query_cache.rb:12:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/query_cache.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-3.0.1/lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/rack/logger.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/activesupport-3.0.1/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/application.rb:168:in `call'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/application.rb:77:in `send'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/application.rb:77:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/rack/log_tailer.rb:14:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/commands/server.rb:65:in `start'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/commands.rb:30
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/commands.rb:27:in `tap'
+/Library/Ruby/Gems/1.8/gems/railties-3.0.1/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered things/index.html.erb within layouts/application (88.8ms)
+Completed   in 124ms
+
+ActionView::Template::Error (compile error
+/Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:24: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...ink_to "Things", path_to thing );@output_buffer.safe_concat(...
+                              ^
+/Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:25: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...Categories",  path_to category );@output_buffer.safe_concat(...
+                              ^
+/Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:29: syntax error, unexpected kDO_BLOCK, expecting kEND
+');@output_buffer.append_if_string= 		 flash.each do |name, msg| 
+                                    		              ^
+/Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:29: syntax error, unexpected '|', expecting '='
+');@output_buffer.append_if_string= 		 flash.each do |name, msg| 
+                                    		                          ^
+/Users/ion/Development/projects/100things/app/views/layouts/application.html.erb:40: syntax error, unexpected kENSURE, expecting $end):
+    21: 	
+    22: 		<!-- User menu options -->
+    23: 		<div id="user_menu">
+    24: 			<%= link_to "Things", path_to thing %> __
+    25: 			<%= link_to "Categories",  path_to category %> __
+    26: 		</div>
+    27: 	
+  app/views/layouts/application.html.erb:40:in `compile'
+  app/controllers/things_controller.rb:9:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (144.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (152.8ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:31:05 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (277.2ms)
+Completed   in 313ms
+
+ActionView::Template::Error (undefined local variable or method `path_to_things' for #<#<Class:0x1036c1cc8>:0x1036bffb8>):
+    21: 	
+    22: 		<!-- User menu options -->
+    23: 		<div id="user_menu">
+    24: 			<%= link_to "Things", path_to_things %> __
+    25: 			<%= link_to "Categories",  path_to_categories %> __
+    26: 		</div>
+    27: 	
+  app/views/layouts/application.html.erb:24:in `_app_views_layouts_application_html_erb__393032906_2176180480_0'
+  app/controllers/things_controller.rb:9:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (143.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (211.7ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:31:24 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (283.0ms)
+Completed   in 317ms
+
+ActionView::Template::Error (undefined local variable or method `things' for #<#<Class:0x10361dce0>:0x1036188d0>):
+    21: 	
+    22: 		<!-- User menu options -->
+    23: 		<div id="user_menu">
+    24: 			<%= link_to "Things", things %> __
+    25: 			<%= link_to "Categories",  categories %> __
+    26: 		</div>
+    27: 	
+  app/views/layouts/application.html.erb:24:in `_app_views_layouts_application_html_erb__393032906_2175831860_0'
+  app/controllers/things_controller.rb:9:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (150.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (158.0ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:31:38 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 44ms (Views: 16.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:31:41 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 111ms (Views: 15.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 14:31:44 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 46ms (Views: 17.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:32:11 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (78.6ms)
+Completed 200 OK in 112ms (Views: 84.9ms | ActiveRecord: 0.5ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mThing Load (0.1ms)[0m  SELECT "things".* FROM "things" LIMIT 1
+  [1m[36mThing Load (0.3ms)[0m  [1mSELECT "things".* FROM "things"[0m
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:38:09 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+Rendered things/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 42ms (Views: 16.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things/3/edit" for 127.0.0.1 at Tue Nov 23 14:38:14 +0100 2010
+  Processing by ThingsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1[0m
+Rendered things/_form.html.erb (8.9ms)
+Rendered things/edit.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 151ms (Views: 53.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/things/3" for 127.0.0.1 at Tue Nov 23 14:38:23 +0100 2010
+  Processing by ThingsController#update as HTML
+  Parameters: {"commit"=>"Update Thing", "authenticity_token"=>"S9uDf5Fm+ghdnaO80Y+xtuUyYh4yOf/paMV3npSbkww=", "utf8"=>"✓", "id"=>"3", "thing"=>{"price"=>"1.0", "name"=>"IonThing", "category_id"=>"1", "description"=>""}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "things" SET "category_id" = 1, "price" = 1.0, "updated_at" = '2010-11-23 13:38:23.157778' WHERE ("things"."id" = 3)
+Redirected to http://localhost:3000/things/3
+Completed 302 Found in 36ms
+
+
+Started GET "/things/3" for 127.0.0.1 at Tue Nov 23 14:38:23 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1
+Rendered things/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 48ms (Views: 15.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:38:26 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 40ms (Views: 15.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 14:38:37 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 44ms (Views: 18.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Tue Nov 23 14:38:43 +0100 2010
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 41ms (Views: 13.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 14:38:46 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 43ms (Views: 16.8ms | ActiveRecord: 0.5ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+
+
+Started GET "/categories" for 127.0.0.1 at Tue Nov 23 14:40:49 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 118ms (Views: 18.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:40:52 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+Rendered things/index.html.erb within layouts/application (295.4ms)
+Completed   in 326ms
+
+ActionView::Template::Error (undefined local variable or method `category_id' for #<#<Class:0x103420e60>:0x10341f178>):
+    16:     <td><%= thing.name %></td>
+    17:     <td><%= thing.description %></td>
+    18:     <td><%= thing.price %></td>
+    19:     <td><%= Category.find(category_id).name %></td>
+    20:     <td><%= link_to 'Show', thing %></td>
+    21:     <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
+    22:     <td><%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %></td>
+  app/views/things/index.html.erb:19:in `_app_views_things_index_html_erb___1003892460_2174807120_0'
+  app/views/things/index.html.erb:14:in `each'
+  app/views/things/index.html.erb:14:in `_app_views_things_index_html_erb___1003892460_2174807120_0'
+  app/controllers/things_controller.rb:9:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (195.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (203.9ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:41:07 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+Rendered things/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 122ms (Views: 31.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/things/3" for 127.0.0.1 at Tue Nov 23 14:41:24 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1[0m
+Rendered things/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 43ms (Views: 14.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/things/3" for 127.0.0.1 at Tue Nov 23 14:43:03 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1[0m
+Rendered things/show.html.erb within layouts/application (284.1ms)
+Completed   in 318ms
+
+ActionView::Template::Error (undefined local variable or method `thing' for #<#<Class:0x1036ca940>:0x1036c2b00>):
+    17: 
+    18: <p>
+    19:   <b>Category:</b>
+    20:   <%= Category.find(thing.category_id).name %>
+    21: </p>
+    22: 
+    23: 
+  app/views/things/show.html.erb:20:in `_app_views_things_show_html_erb__941625767_2176190320_0'
+  app/controllers/things_controller.rb:20:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (147.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (213.2ms)
+
+
+Started GET "/things/3" for 127.0.0.1 at Tue Nov 23 14:43:13 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered things/show.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 55ms (Views: 29.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/things/3" for 127.0.0.1 at Tue Nov 23 14:44:16 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+Rendered things/show.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 124ms (Views: 28.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/things/3" for 127.0.0.1 at Tue Nov 23 14:44:32 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered things/show.html.erb within layouts/application (90.9ms)
+Completed 200 OK in 123ms (Views: 97.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/things/3" for 127.0.0.1 at Tue Nov 23 14:44:58 +0100 2010
+  Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things" WHERE ("things"."id" = 3) LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+Rendered things/show.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 55ms (Views: 28.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/things" for 127.0.0.1 at Tue Nov 23 14:45:17 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered things/index.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 56ms (Views: 29.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/edit/1" for 127.0.0.1 at Tue Nov 23 14:46:36 +0100 2010
+
+ActionController::RoutingError (No route matches "/users/edit/1"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Nov 25 09:02:30 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Thu Nov 25 09:02:31 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 47ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Thu Nov 25 09:04:20 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"VLq33WLWXG0IyAPJVfrtO8mTViTHCMhJFeS9fTbfLNI=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test@suzzlo.org"}}
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (23.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'test@suzzlo.org') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-11-25 08:04:20.848431', "last_sign_in_at" = '2010-11-23 13:09:04.564942', "sign_in_count" = 3, "updated_at" = '2010-11-25 08:04:20.849086' WHERE ("users"."id" = 2)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 424ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Nov 25 09:04:20 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mThing Load (26.8ms)[0m  [1mSELECT "things".* FROM "things"[0m
+  [1m[35mCategory Load (10.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered things/index.html.erb within layouts/application (44.6ms)
+Completed 200 OK in 160ms (Views: 63.1ms | ActiveRecord: 61.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Thu Nov 25 09:04:26 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+Rendered categories/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 57ms (Views: 30.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/things" for 127.0.0.1 at Thu Nov 25 09:04:29 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+Rendered things/index.html.erb within layouts/application (87.7ms)
+Completed 200 OK in 119ms (Views: 94.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Thu Nov 25 09:04:32 +0100 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Nov 25 09:04:33 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 7ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Thu Nov 25 09:04:33 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 106ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Thu Nov 25 09:04:35 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"VLq33WLWXG0IyAPJVfrtO8mTViTHCMhJFeS9fTbfLNI=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test@suzzlo.org"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'test@suzzlo.org') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2010-11-25 08:04:35.888093', "last_sign_in_at" = '2010-11-25 08:04:20.848431', "sign_in_count" = 4, "updated_at" = '2010-11-25 08:04:35.888733' WHERE ("users"."id" = 2)
+Redirected to http://localhost:3000/
+Completed 302 Found in 115ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Nov 25 09:04:35 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+Rendered things/index.html.erb within layouts/application (94.2ms)
+Completed 200 OK in 125ms (Views: 100.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 192.168.1.4 at Fri Nov 26 22:27:35 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 1ms
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:27:35 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 80ms (Views: 63.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:28:30 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (22.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'test01@suzzlo.org') LIMIT 1
+Completed   in 390ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 180ms (Views: 16.6ms | ActiveRecord: 22.8ms)
+
+
+Started GET "/things" for 192.168.1.4 at Fri Nov 26 22:28:37 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 7ms
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:28:37 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 98ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories" for 192.168.1.4 at Fri Nov 26 22:28:40 +0100 2010
+  Processing by CategoriesController#index as HTML
+Completed   in 7ms
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:28:40 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 32ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:33:19 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 101ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:34:09 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 31ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:35:03 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 31ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:37:09 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 96ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:38:18 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 32ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:38:39 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 32ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:39:03 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 95ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:39:46 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 32ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:40:13 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 32ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:40:47 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 96ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:41:43 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 32ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:42:44 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 31ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:43:17 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'test01@suzzlo.org') LIMIT 1[0m
+Completed   in 10ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 117ms (Views: 16.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:45:54 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 31ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:46:05 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'test01@suzzlo.org') LIMIT 1
+Completed   in 11ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 118ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:47:33 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'test01@suzzlo.org') LIMIT 1[0m
+Completed   in 11ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 121ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:47:36 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 30ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:47:40 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'test01@suzzlo.org') LIMIT 1
+Completed   in 74ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 117ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:48:11 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 30ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:48:13 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 31ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:48:16 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'test01@suzzlo.org') LIMIT 1[0m
+Completed   in 11ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 116ms (Views: 16.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:48:53 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'test01@suzzlo.org') LIMIT 1
+Completed   in 11ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 120ms (Views: 16.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:48:55 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'test01@suzzlo.org') LIMIT 1[0m
+Completed   in 11ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+Rendered devise/shared/_links.erb (1.7ms)
+Rendered devise/sessions/new.html.erb within layouts/application (77.6ms)
+Completed 200 OK in 185ms (Views: 85.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:48:59 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 31ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.1.4 at Fri Nov 26 22:49:08 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 7ms
+
+
+Started GET "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:49:08 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 32ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.4 at Fri Nov 26 22:49:13 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'test01@suzzlo.org') LIMIT 1
+Completed   in 10ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"test01@suzzlo.org"}}
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 116ms (Views: 15.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/register" for 192.168.1.4 at Fri Nov 26 22:49:19 +0100 2010
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/registrations/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 45ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 192.168.1.4 at Fri Nov 26 22:49:43 +0100 2010
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"034XNJgOOVI/0ipBAimVBVht66IHWdNMcrWZNRWI65A=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"pakito@suzzlo.org"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('pakito@suzzlo.org')) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "password_salt", "remember_created_at", "remember_token", "reset_password_token", "sign_in_count", "updated_at") VALUES ('2010-11-26 21:49:43.685449', NULL, NULL, 'pakito@suzzlo.org', '$2a$10$gLh8.m/FkfrTPX7XXc6FjeykL0fAvEBnZQjUydmBuqPL7Qy4u/FUS', NULL, NULL, '$2a$10$gLh8.m/FkfrTPX7XXc6Fje', NULL, NULL, NULL, 0, '2010-11-26 21:49:43.685449')
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-11-26 21:49:43.730668', "current_sign_in_ip" = '192.168.1.4', "last_sign_in_at" = '2010-11-26 21:49:43.730668', "last_sign_in_ip" = '192.168.1.4', "sign_in_count" = 1, "updated_at" = '2010-11-26 21:49:43.731226' WHERE ("users"."id" = 3)[0m
+Redirected to http://trevelyan.local/
+Completed 302 Found in 370ms
+
+
+Started GET "/" for 192.168.1.4 at Fri Nov 26 22:49:43 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 3) LIMIT 1
+  [1m[36mThing Load (0.3ms)[0m  [1mSELECT "things".* FROM "things"[0m
+  [1m[35mCategory Load (20.3ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered things/index.html.erb within layouts/application (49.8ms)
+Completed 200 OK in 197ms (Views: 50.1ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/" for 192.168.1.4 at Fri Nov 26 22:51:34 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+Rendered things/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 123ms (Views: 31.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 192.168.1.4 at Fri Nov 26 22:55:30 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 3) LIMIT 1
+  [1m[36mThing Load (0.2ms)[0m  [1mSELECT "things".* FROM "things"[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered things/index.html.erb within layouts/application (88.1ms)
+Completed 200 OK in 118ms (Views: 94.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/user/1" for 192.168.1.4 at Fri Nov 26 22:56:17 +0100 2010
+
+ActionController::RoutingError (No route matches "/user/1"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/1" for 192.168.1.4 at Fri Nov 26 22:56:22 +0100 2010
+
+ActionController::RoutingError (No route matches "/users/1"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 192.168.1.4 at Fri Nov 26 22:56:27 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+Rendered things/index.html.erb within layouts/application (92.5ms)
+Completed 200 OK in 123ms (Views: 99.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/things/new" for 192.168.1.4 at Fri Nov 26 22:57:21 +0100 2010
+  Processing by ThingsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 3) LIMIT 1
+Rendered things/_form.html.erb (9.3ms)
+Rendered things/new.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 397ms (Views: 373.2ms | ActiveRecord: 0.2ms)
