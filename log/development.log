@@ -3036,3 +3036,54 @@ Started GET "/things/new" for 192.168.1.4 at Fri Nov 26 22:57:21 +0100 2010
 Rendered things/_form.html.erb (9.3ms)
 Rendered things/new.html.erb within layouts/application (15.7ms)
 Completed 200 OK in 397ms (Views: 373.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Dec 09 17:47:52 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Thu Dec 09 17:47:52 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 59ms (Views: 42.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Thu Dec 09 17:48:13 +0100 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"eiqxmRCT1EnSw5RkpGMe/dhot1fcdRMYaVNoecGV8Ms=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"ion@suzzlo.org"}}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (335.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'ion@suzzlo.org') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-12-09 16:48:14.562862', "last_sign_in_at" = '2010-11-23 13:08:34.415643', "sign_in_count" = 10, "updated_at" = '2010-12-09 16:48:14.563555' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 857ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Dec 09 17:48:14 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mThing Load (0.6ms)[0m  [1mSELECT "things".* FROM "things"[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered things/index.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 163ms (Views: 46.0ms | ActiveRecord: 337.1ms)
+
+
+Started GET "/things" for 127.0.0.1 at Thu Dec 09 17:48:20 +0100 2010
+  Processing by ThingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mThing Load (0.2ms)[0m  SELECT "things".* FROM "things"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+Rendered things/index.html.erb within layouts/application (92.4ms)
+Completed 200 OK in 124ms (Views: 98.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/categories" for 127.0.0.1 at Thu Dec 09 17:48:22 +0100 2010
+  Processing by CategoriesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+Rendered categories/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 46ms (Views: 18.7ms | ActiveRecord: 0.5ms)
