@@ -55,7 +55,7 @@
 	
     <td><%= thing.name %></td>
     <td><%= thing.price %> €</td>
-    <td><%= thing.adquired.strftime("%Y-%m-%d") %></td>  
+    <td><%= thing.adquired %></td>  
 	<td align='center'>
 		<span id='category' style='background-color:<%= Category.find(thing.category_id).background_color %>;color:<%= Category.find(thing.category_id).text_color %>'>
 			<%= Category.find(thing.category_id).name %>
