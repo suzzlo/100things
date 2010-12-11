@@ -30423,3 +30423,267 @@ Started GET "/things" for 192.168.1.2 at Sat Dec 11 03:25:04 +0100 2010
   [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 3) LIMIT 1
 Rendered things/index.html.erb within layouts/application (196.8ms)
 Completed 200 OK in 231ms (Views: 199.4ms | ActiveRecord: 4.9ms)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateCategories (20101119222400)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "text_color" text, "background_color" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101119222400')
+Migrating to DeviseCreateUsers (20101119232737)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101119232737')[0m
+Migrating to CreateThings (20101120001029)
+  [1m[35mSQL (0.5ms)[0m  CREATE TABLE "things" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "price" float, "category_id" integer, "user_id" integer, "adquired" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101120001029')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("categories")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("things")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Technology') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#05b', '2010-12-11 02:41:05.126150', 'Geeks love gadgets, are you a geek?', 'Technology', '#fcfcfc', '2010-12-11 02:41:05.126150')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Clothes') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#0a0', '2010-12-11 02:41:05.132751', 'Wereathable things', 'Clothes', '#fcfcfc', '2010-12-11 02:41:05.132751')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Books') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#d22', '2010-12-11 02:41:05.138004', 'Reading is a great experience', 'Books', '#fcfcfc', '2010-12-11 02:41:05.138004')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'CD or DVD') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#7a2', '2010-12-11 02:41:05.143491', 'Reading is a great experience', 'CD or DVD', '#fcfcfc', '2010-12-11 02:41:05.143491')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 05') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#d22', '2010-12-11 02:41:05.148403', 'Reading is a great experience', 'Category 05', '#fcfcfc', '2010-12-11 02:41:05.148403')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 06') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#d22', '2010-12-11 02:41:05.154910', 'Reading is a great experience', 'Category 06', '#fcfcfc', '2010-12-11 02:41:05.154910')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 07') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#739', '2010-12-11 02:41:05.159947', 'Reading is a great experience', 'Category 07', '#fcfcfc', '2010-12-11 02:41:05.159947')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 08') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#739', '2010-12-11 02:41:05.167441', 'Reading is a great experience', 'Category 08', '#fcfcfc', '2010-12-11 02:41:05.167441')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 09') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#739', '2010-12-11 02:41:05.172985', 'Reading is a great experience', 'Category 09', '#fcfcfc', '2010-12-11 02:41:05.172985')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:41:05.189345', NULL, 'iMac 24''', 1400.0, '2010-12-11 02:41:05.189345', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:41:05.196045', NULL, 'MacBookPro 13.3''', 1100.0, '2010-12-11 02:41:05.196045', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:41:05.200551', NULL, 'Reloj Swatch', 38.0, '2010-12-11 02:41:05.200551', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:41:05.205244', NULL, 'Thing 004: d', 0.0, '2010-12-11 02:41:05.205244', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:41:05.209975', NULL, 'Thing 005: dasd', 0.0, '2010-12-11 02:41:05.209975', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:41:05.215515', NULL, 'Thing 006', 0.0, '2010-12-11 02:41:05.215515', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:41:05.220205', NULL, 'Thing 007', 0.0, '2010-12-11 02:41:05.220205', 1)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 4, '2010-12-11 02:41:05.224724', NULL, 'Thing 008', 0.0, '2010-12-11 02:41:05.224724', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:41:05.289793', NULL, 'Thing 009', 0.0, '2010-12-11 02:41:05.289793', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:41:05.294457', NULL, 'Thing 010', 0.0, '2010-12-11 02:41:05.294457', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 5, '2010-12-11 02:41:05.299066', NULL, 'Thing 011', 0.0, '2010-12-11 02:41:05.299066', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:41:05.303775', NULL, 'Thing 012', 0.0, '2010-12-11 02:41:05.303775', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:41:05.309324', NULL, 'Thing 013', 0.0, '2010-12-11 02:41:05.309324', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 6, '2010-12-11 02:41:05.313969', NULL, 'Thing 014', 0.0, '2010-12-11 02:41:05.313969', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:41:05.318599', NULL, 'Thing 015', 0.0, '2010-12-11 02:41:05.318599', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:41:05.323446', NULL, 'Thing 016', 0.0, '2010-12-11 02:41:05.323446', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 7, '2010-12-11 02:41:05.327999', NULL, 'Thing 017', 0.0, '2010-12-11 02:41:05.327999', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:41:05.334309', NULL, 'Thing 018', 0.0, '2010-12-11 02:41:05.334309', 1)[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 8, '2010-12-11 02:41:05.339287', NULL, 'Thing 019', 0.0, '2010-12-11 02:41:05.339287', 1)
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:41:05.344475', NULL, 'Thing 020', 0.0, '2010-12-11 02:41:05.344475', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:41:05.350417', NULL, 'Thing 021', 0.0, '2010-12-11 02:41:05.350417', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 9, '2010-12-11 02:41:05.355213', NULL, 'Thing 022', 0.0, '2010-12-11 02:41:05.355213', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:41:05.359809', NULL, 'Thing 023', 0.0, '2010-12-11 02:41:05.359809', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 9, '2010-12-11 02:41:05.364440', NULL, 'Thing 024', 0.0, '2010-12-11 02:41:05.364440', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:41:05.369272', NULL, 'Thing 025', 0.0, '2010-12-11 02:41:05.369272', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:41:05.373752', NULL, 'Thing 026', 0.0, '2010-12-11 02:41:05.373752', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 8, '2010-12-11 02:41:05.378087', NULL, 'Thing 027', 0.0, '2010-12-11 02:41:05.378087', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:41:05.383797', NULL, 'Thing 028', 0.0, '2010-12-11 02:41:05.383797', 1)[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 4, '2010-12-11 02:41:05.388953', NULL, 'Thing 029', 0.0, '2010-12-11 02:41:05.388953', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:41:05.393544', NULL, 'Thing 030', 0.0, '2010-12-11 02:41:05.393544', 1)[0m
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (2.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateCategories (20101119222400)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "text_color" text, "background_color" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101119222400')
+Migrating to DeviseCreateUsers (20101119232737)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101119232737')[0m
+Migrating to CreateThings (20101120001029)
+  [1m[35mSQL (0.6ms)[0m  CREATE TABLE "things" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "price" float, "category_id" integer, "user_id" integer, "adquired" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101120001029')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("categories")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("things")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Technology') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#05b', '2010-12-11 02:52:44.017607', 'Geeks love gadgets, are you a geek?', 'Technology', '#fcfcfc', '2010-12-11 02:52:44.017607')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Clothes') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#0a0', '2010-12-11 02:52:44.023891', 'Wereathable things', 'Clothes', '#fcfcfc', '2010-12-11 02:52:44.023891')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Books') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#d22', '2010-12-11 02:52:44.028064', 'Reading is a great experience', 'Books', '#fcfcfc', '2010-12-11 02:52:44.028064')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'CD or DVD') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#7a2', '2010-12-11 02:52:44.034317', 'Reading is a great experience', 'CD or DVD', '#fcfcfc', '2010-12-11 02:52:44.034317')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 05') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#d22', '2010-12-11 02:52:44.039366', 'Reading is a great experience', 'Category 05', '#fcfcfc', '2010-12-11 02:52:44.039366')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 06') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#d22', '2010-12-11 02:52:44.044339', 'Reading is a great experience', 'Category 06', '#fcfcfc', '2010-12-11 02:52:44.044339')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 07') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#739', '2010-12-11 02:52:44.049055', 'Reading is a great experience', 'Category 07', '#fcfcfc', '2010-12-11 02:52:44.049055')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 08') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#739', '2010-12-11 02:52:44.054677', 'Reading is a great experience', 'Category 08', '#fcfcfc', '2010-12-11 02:52:44.054677')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 09') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#739', '2010-12-11 02:52:44.059188', 'Reading is a great experience', 'Category 09', '#fcfcfc', '2010-12-11 02:52:44.059188')[0m
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (2.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (2.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateCategories (20101119222400)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "text_color" text, "background_color" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101119222400')
+Migrating to DeviseCreateUsers (20101119232737)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101119232737')[0m
+Migrating to CreateThings (20101120001029)
+  [1m[35mSQL (0.5ms)[0m  CREATE TABLE "things" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "price" float, "category_id" integer, "user_id" integer, "adquired" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101120001029')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("categories")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("things")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Technology') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#05b', '2010-12-11 02:54:28.770575', 'Geeks love gadgets, are you a geek?', 'Technology', '#fcfcfc', '2010-12-11 02:54:28.770575')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Clothes') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#0a0', '2010-12-11 02:54:28.776841', 'Wereathable things', 'Clothes', '#fcfcfc', '2010-12-11 02:54:28.776841')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Books') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#d22', '2010-12-11 02:54:28.780789', 'Reading is a great experience', 'Books', '#fcfcfc', '2010-12-11 02:54:28.780789')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'CD or DVD') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#7a2', '2010-12-11 02:54:28.787684', 'Reading is a great experience', 'CD or DVD', '#fcfcfc', '2010-12-11 02:54:28.787684')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 05') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#d22', '2010-12-11 02:54:28.792874', 'Reading is a great experience', 'Category 05', '#fcfcfc', '2010-12-11 02:54:28.792874')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 06') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#d22', '2010-12-11 02:54:28.798131', 'Reading is a great experience', 'Category 06', '#fcfcfc', '2010-12-11 02:54:28.798131')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 07') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#739', '2010-12-11 02:54:28.802790', 'Reading is a great experience', 'Category 07', '#fcfcfc', '2010-12-11 02:54:28.802790')[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 08') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#739', '2010-12-11 02:54:28.808812', 'Reading is a great experience', 'Category 08', '#fcfcfc', '2010-12-11 02:54:28.808812')[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories"."id" FROM "categories" WHERE ("categories"."name" = 'Category 09') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "categories" ("background_color", "created_at", "description", "name", "text_color", "updated_at") VALUES ('#739', '2010-12-11 02:54:28.814385', 'Reading is a great experience', 'Category 09', '#fcfcfc', '2010-12-11 02:54:28.814385')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:54:28.832003', NULL, 'iMac 24''', 1400.0, '2010-12-11 02:54:28.832003', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:54:28.838689', NULL, 'MacBookPro 13.3''', 1100.0, '2010-12-11 02:54:28.838689', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:54:28.843072', NULL, 'Reloj Swatch', 38.0, '2010-12-11 02:54:28.843072', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:54:28.848020', NULL, 'Thing 004: d', 0.0, '2010-12-11 02:54:28.848020', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:54:28.852461', NULL, 'Thing 005: dasd', 0.0, '2010-12-11 02:54:28.852461', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:54:28.857616', NULL, 'Thing 006', 0.0, '2010-12-11 02:54:28.857616', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:54:28.862586', NULL, 'Thing 007', 0.0, '2010-12-11 02:54:28.862586', 1)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 4, '2010-12-11 02:54:28.866990', NULL, 'Thing 008', 0.0, '2010-12-11 02:54:28.866990', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:54:28.933193', NULL, 'Thing 009', 0.0, '2010-12-11 02:54:28.933193', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 1, '2010-12-11 02:54:28.937954', NULL, 'Thing 010', 0.0, '2010-12-11 02:54:28.937954', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 5, '2010-12-11 02:54:28.942704', NULL, 'Thing 011', 0.0, '2010-12-11 02:54:28.942704', 1)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:54:28.947616', NULL, 'Thing 012', 0.0, '2010-12-11 02:54:28.947616', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:54:28.953674', NULL, 'Thing 013', 0.0, '2010-12-11 02:54:28.953674', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 6, '2010-12-11 02:54:28.958285', NULL, 'Thing 014', 0.0, '2010-12-11 02:54:28.958285', 1)[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:54:28.963503', NULL, 'Thing 015', 0.0, '2010-12-11 02:54:28.963503', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:54:28.969208', NULL, 'Thing 016', 0.0, '2010-12-11 02:54:28.969208', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 7, '2010-12-11 02:54:28.973886', NULL, 'Thing 017', 0.0, '2010-12-11 02:54:28.973886', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:54:28.978298', NULL, 'Thing 018', 0.0, '2010-12-11 02:54:28.978298', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 8, '2010-12-11 02:54:28.982803', NULL, 'Thing 019', 0.0, '2010-12-11 02:54:28.982803', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 2, '2010-12-11 02:54:28.987396', NULL, 'Thing 020', 0.0, '2010-12-11 02:54:28.987396', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:54:28.992520', NULL, 'Thing 021', 0.0, '2010-12-11 02:54:28.992520', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 9, '2010-12-11 02:54:28.996999', NULL, 'Thing 022', 0.0, '2010-12-11 02:54:28.996999', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:54:29.001518', NULL, 'Thing 023', 0.0, '2010-12-11 02:54:29.001518', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 9, '2010-12-11 02:54:29.006092', NULL, 'Thing 024', 0.0, '2010-12-11 02:54:29.006092', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:54:29.011171', NULL, 'Thing 025', 0.0, '2010-12-11 02:54:29.011171', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:54:29.015737', NULL, 'Thing 026', 0.0, '2010-12-11 02:54:29.015737', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 8, '2010-12-11 02:54:29.020236', NULL, 'Thing 027', 0.0, '2010-12-11 02:54:29.020236', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:54:29.025215', NULL, 'Thing 028', 0.0, '2010-12-11 02:54:29.025215', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 4, '2010-12-11 02:54:29.030304', NULL, 'Thing 029', 0.0, '2010-12-11 02:54:29.030304', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "things" ("adquired", "category_id", "created_at", "description", "name", "price", "updated_at", "user_id") VALUES ('2010-12-01 00:00:00.000000', 3, '2010-12-11 02:54:29.035427', NULL, 'Thing 030', 0.0, '2010-12-11 02:54:29.035427', 1)[0m
