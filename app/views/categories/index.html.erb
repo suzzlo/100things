@@ -1,17 +1,13 @@
 <h1>Listing categories</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @categories.each do |category| %>
   <tr>
-    <td><%= category.name %></td>
+	<td>
+		<span id='category' style='background-color:<%= category.background_color %>;color:<%= category.text_color %>'>
+			<%= category.name %>
+		</span>
+	</td>
     <td><%= category.description %></td>
     <td><%= link_to 'Show', category %></td>
     <td><%= link_to 'Edit', edit_category_path(category) %></td>

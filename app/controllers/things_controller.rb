@@ -27,6 +27,7 @@ class ThingsController < ApplicationController
   # GET /things/new.xml
   def new
     @thing = Thing.new
+    @thing.price = 0
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +44,7 @@ class ThingsController < ApplicationController
   # POST /things.xml
   def create
     @thing = Thing.new(params[:thing])
+    @thing.user_id = current_user.id
 
     respond_to do |format|
       if @thing.save

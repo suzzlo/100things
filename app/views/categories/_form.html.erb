@@ -11,15 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<table>
+	<tr>
+		<td><%= f.label :name %></td>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :text_color %></td>
+		<td><%= f.text_field :text_color %></td>	
+	</tr>
+	<tr>
+		<td><%= f.label :background_color %></td>
+		<td><%= f.text_field :background_color %></td>
+	</tr>
+	<tr>
+		<td colspan='2'><%= f.label :description %></td>
+	</tr>
+	<tr>
+		<td colspan='2'><%= f.text_area :description %></td>
+	</tr>
+	<tr>
+		<td colspan='2'><%= f.submit %></td>
+	</tr>
+</table>
 <% end %>

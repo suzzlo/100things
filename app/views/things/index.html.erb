@@ -1,23 +1,68 @@
-<h1>Listing things</h1>
+<% thing_list = Thing.find_all_by_user_id(current_user.id) %>
+
+<h1>Listing things (<%= thing_list.size %>)</h1>
+
+
+<script type="text/javascript" charset="utf-8">
+
+	$(function(){
+		new Highcharts.Chart({
+			chart: {
+				renderTo: "things_chart"
+			},
+			title: {
+				text: "Quantity of things by category"
+			},
+			plotArea: {
+				shadow: null,
+				borderWidth: null,
+				backgroundColor: null
+			},
+			tooltip: {
+				formatter: function() {
+					return '<b>'+ this.point.name +'</b>: '+ this.y +' ';
+				}
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: false
+					},
+					showInLegend: true
+				}
+			},
+			colors: <%= raw Category.all.map { | cat | cat.background_color }.inspect %>,
+			series: [
+			{
+				type: 'pie',
+				name: 'Browser share',
+				data: <%= raw Category.all.map{ |cat| [Category.find(cat.id).name, Thing.count_by_category(cat.id)] }.inspect %>
+				
+			}]
+		});
+	});
+	
+</script>
+
+<div id="things_chart">
+</div>
 
 <table>
+<% thing_list.each do |thing| %>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Category</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @things.each do |thing| %>
-  <tr>
+	
     <td><%= thing.name %></td>
-    <td><%= thing.description %></td>
-    <td><%= thing.price %></td>
-    <td><%= Category.find(thing.category_id).name %></td>
-    <td><%= link_to 'Show', thing %></td>
+    <td><%= thing.price %> €</td>
+    <td><%= thing.adquired.strftime("%Y-%m-%d") %></td>  
+	<td align='center'>
+		<span id='category' style='background-color:<%= Category.find(thing.category_id).background_color %>;color:<%= Category.find(thing.category_id).text_color %>'>
+			<%= Category.find(thing.category_id).name %>
+		</span>
+	</td>
+
+	<td><%= link_to 'Show', thing %></td>
     <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
     <td><%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

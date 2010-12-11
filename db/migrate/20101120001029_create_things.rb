@@ -5,6 +5,8 @@ class CreateThings < ActiveRecord::Migration
       t.text :description
       t.float :price
       t.integer :category_id
+      t.integer :user_id
+      t.datetime :adquired
 
       t.timestamps
     end

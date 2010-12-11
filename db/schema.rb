@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(:version => 20101120001029) do
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.text     "text_color"
+    t.text     "background_color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20101120001029) do
     t.text     "description"
     t.float    "price"
     t.integer  "category_id"
+    t.integer  "user_id"
+    t.datetime "adquired"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

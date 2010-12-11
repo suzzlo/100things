@@ -1,15 +1,12 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
+<div id='category' style='background-color:<%= @category.background_color %>;color:<%= @category.text_color %>'>
+	<%= @category.name %>
+</div>
 
 <p>
   <b>Description:</b>
   <%= @category.description %>
 </p>
-
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

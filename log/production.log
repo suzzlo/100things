@@ -1,0 +1,61 @@
+
+
+Started GET "/" for 192.168.1.2 at Sat Dec 11 00:12:12 +0100 2010
+  Processing by ThingsController#index as HTML
+Completed   in 89ms
+
+
+Started GET "/users/sign_in" for 192.168.1.2 at Sat Dec 11 00:12:12 +0100 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 29ms (Views: 18.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/stylesheets/application.css?1292022261" for 192.168.1.2 at Sat Dec 11 00:12:13 +0100 2010
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css"):
+  
+
+
+
+Started GET "/javascripts/jquery-1.4.4.min.js?1292017122" for 192.168.1.2 at Sat Dec 11 00:12:13 +0100 2010
+
+ActionController::RoutingError (No route matches "/javascripts/jquery-1.4.4.min.js"):
+  
+
+
+
+Started GET "/javascripts/jquery.js" for 192.168.1.2 at Sat Dec 11 00:12:13 +0100 2010
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+
+
+Started GET "/javascripts/rails.js?1292017228" for 192.168.1.2 at Sat Dec 11 00:12:13 +0100 2010
+
+ActionController::RoutingError (No route matches "/javascripts/rails.js"):
+  
+
+
+
+Started GET "/javascripts/application.js?1292017944" for 192.168.1.2 at Sat Dec 11 00:12:13 +0100 2010
+
+ActionController::RoutingError (No route matches "/javascripts/application.js"):
+  
+
+
+
+Started GET "/favicon.ico" for 192.168.1.2 at Sat Dec 11 00:12:13 +0100 2010
+
+ActionController::RoutingError (No route matches "/favicon.ico"):
+  
+
+
+
+Started GET "/favicon.ico" for 192.168.1.2 at Sat Dec 11 00:12:23 +0100 2010
+
+ActionController::RoutingError (No route matches "/favicon.ico"):
+  
+
