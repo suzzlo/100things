@@ -53,7 +53,7 @@
 <% thing_list.each do |thing| %>
   <tr>
 	
-    <td><%= thing.name %></td>
+    <td><%= link_to thing.name, thing %></td>
     <td><%= thing.price %> €</td>
     <td><%= thing.adquired %></td>  
 	<td align='center'>
@@ -61,8 +61,6 @@
 			<%= Category.find(thing.category_id).name %>
 		</span>
 	</td>
-
-	<td><%= link_to 'Show', thing %></td>
     <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
     <td><%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

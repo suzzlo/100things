@@ -1,0 +1,23 @@
+100things
+---------
+
+General
+	* Create homepage (public/registered users)
+	
+Thing
+	* Adquired: datetime => just date
+	* Move report to reports
+	* Redesign list
+
+Category
+	* Add color pickers to categories text_color and background_color
+	* ¿user categories?
+	
+Report
+	* Create reports structure
+	* New reports:
+		* Items per category (only for user used categories)
+		* Euros per category (only for user used categories)
+		
+User
+	* Create profile (photo + twitter + facebook)
