@@ -5,7 +5,7 @@ Hundredthings::Application.routes.draw do
   resources :things, :categories
   resources :admins, :only => :index
 
-  # root :to => "things#index"
+  root :to => "things#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
