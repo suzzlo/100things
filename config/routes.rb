@@ -1,10 +1,11 @@
 Hundredthings::Application.routes.draw do
-
-  devise_for :users, :path_names => { :sign_up => "register" }
+  
+  devise_for :users, :admin
 
   resources :things, :categories
-  
-  root :to => "things#index"
+  resources :admins, :only => :index
+
+  # root :to => "things#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

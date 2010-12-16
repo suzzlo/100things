@@ -59,7 +59,7 @@ td {
 #yield {
 }
 
-h1, h2, h3 {
+h1, h2{
 	font-family: 'Yanone Kaffeesatz', serif;
 	font-style: normal;
 	font-weight: 400;
@@ -86,6 +86,7 @@ table {
 }
 
 #category {
+	margin:20px;
 	padding-top: 1px;
 	padding-bottom: 1px;
 	padding-left: 12px;

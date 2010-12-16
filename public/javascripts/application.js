@@ -4,5 +4,12 @@
 $(document).ready(
 	
 	function() {
+		
+		$( "#things_filters" ).accordion({
+			//fillSpace: true,
+			active: false,
+			collapsible: true
+		});
+		
 	}
 );

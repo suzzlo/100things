@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-	<title><%= yield(:title) || "Untitled"%></title>
+	<title><%= yield(:title) || "100things"%></title>
 	<%= stylesheet_link_tag 'application' %>
 	<%= stylesheet_link_tag 'jquery-ui' %>
 	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700' %>
@@ -21,7 +21,8 @@
 		<!-- Session options -->
 		<div id="user_session">
 			<% if user_signed_in? %>
-				<%= current_user.email %> | <%= link_to "Sign out" , destroy_user_session_path %>
+				<%= link_to current_user.email, edit_user_registration_path %> |
+				<%= link_to "Sign out" , destroy_user_session_path %>
 			<% else %>
 				<%= link_to "Sign up" , new_user_registration_path %> | <%= link_to "Sign in" , new_user_session_path %>
 			<% end %>
@@ -39,9 +40,8 @@
 							<ul>
 								<li><%= link_to "Things", things_path %></li>
 								<li><%= link_to "Categories", categories_path %></li>
-								<li><%= link_to "My profile", edit_user_registration_path %></li>
 							</ul>
-							<% end %>
+							<% end %>						
 						</div>
 					</td>
 					<td>

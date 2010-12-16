@@ -1,22 +1,22 @@
-<p>
-  <b>Name:</b>
-  <%= @thing.name %>
-</p>
 
-<p>
-  <b>Description:</b>
-  <%= @thing.description %>
-</p>
+<h1><%= @thing.name %></h1>
+
 
 <p>
   <b>Price:</b>
-  <%= @thing.price %>
+  <%= @thing.price %> €
 </p>
 
 <p>
   <b>Category:</b>
   <%= Category.find(@thing.category_id).name %>
 </p>
+
+<p>
+  <b>Notes:</b><br/>
+  <%= @thing.notes %>
+</p>
+
 
 
 <%= link_to 'Edit', edit_thing_path(@thing) %> |

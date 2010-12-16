@@ -1,10 +1,8 @@
 
-<div id='category' style='background-color:<%= @category.background_color %>;color:<%= @category.text_color %>'>
-	<%= @category.name %>
-</div>
+<%= render 'category_label' %>
 
 <p>
-  <b>Description:</b>
+  <b>Description:</b><br/>
   <%= @category.description %>
 </p>
 

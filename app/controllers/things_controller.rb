@@ -48,7 +48,7 @@ class ThingsController < ApplicationController
 
     respond_to do |format|
       if @thing.save
-        format.html { redirect_to(@thing, :notice => 'Thing was successfully created.') }
+        format.html { redirect_to(things_path, :notice => 'Thing was successfully created.') }
         format.xml  { render :xml => @thing, :status => :created, :location => @thing }
       else
         format.html { render :action => "new" }
