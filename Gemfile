@@ -31,3 +31,6 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 # Authentication system
 gem 'devise', '1.1.3'
+
+# Form simplifier
+gem 'simple_form'
