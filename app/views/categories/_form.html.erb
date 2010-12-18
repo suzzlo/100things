@@ -1,37 +1,10 @@
-<%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<%= simple_form_for(@category) do |f| %>
 
-      <ul>
-      <% @category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<table>
-	<tr>
-		<td><%= f.label :name %></td>
-		<td><%= f.text_field :name %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :text_color %></td>
-		<td><%= f.text_field :text_color %></td>	
-	</tr>
-	<tr>
-		<td><%= f.label :background_color %></td>
-		<td><%= f.text_field :background_color %></td>
-	</tr>
-	<tr>
-		<td colspan='2'><%= f.label :description %></td>
-	</tr>
-	<tr>
-		<td colspan='2'><%= f.text_area :description %></td>
-	</tr>
-	<tr>
-		<td colspan='2'><%= f.submit %></td>
-	</tr>
-</table>
+	<%= f.input :name %>
+	<%= f.input :text_color, :as => :string %>
+	<%= f.input :background_color, :as => :string %>
+	<%= f.input :description, :as => :text %>
+	
+	<%= f.button :submit %>
+	
 <% end %>

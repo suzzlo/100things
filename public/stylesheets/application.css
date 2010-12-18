@@ -4,7 +4,7 @@ body {
 
 body, p, ol, ul, td {
 	font-family: 'Yanone Kaffeesatz', serif;
-	font-size: 20px
+	font-size: 18px
 }
 
 td {
@@ -73,13 +73,13 @@ h1, h2{
 	border-bottom: 1px solid #999;
 }
 h1 {
-	font-size: 24px;
-}
-h2 {
 	font-size: 22px;
 }
-h3 {
+h2 {
 	font-size: 20px;
+}
+h3 {
+	font-size: 18px;
 }
 
 table {
@@ -101,7 +101,7 @@ table {
 a:link, a:visited
 {
 	font-family: 'Yanone Kaffeesatz', serif;
-	font-size: 20px;
+	font-size: 18px;
 	color: #555;
 	text-decoration: none;
 	text-transform: none;
@@ -110,19 +110,56 @@ a:link, a:visited
 a:hover, a:active
 {
 	font-family: 'Yanone Kaffeesatz', serif;
-	font-size: 20px;
+	font-size: 18px;
 	color: #888;
 }
 
-
+/*
 input, textarea, select {
 	font-family: 'Yanone Kaffeesatz', serif;
 	color: #555;
 	border: 1px solid #999;
 	padding: 5px;
 }
+*/
 
 #things_chart {
 	width: 500px;
 	height: 300px;
+}
+
+
+/*** Simple Form gem styles ***/
+.simple_form label {
+	float:none;
+	margin: 0;
+	font-family: 'Yanone Kaffeesatz', serif;
+	float: left;
+	width:150px;
+	text-align:right;
+	margin: 2px 10px;
+}
+
+input, .simple_form input {
+	font-family: 'Yanone Kaffeesatz', serif;
+	font-size: 18px;
+	margin-bottom: 10px;
+	border: 1px solid #999;
+}
+
+.simple_form input[type='submit'] {
+	margin-left: 172px;
+}
+
+.simple_form div.boolean {
+	margin-left: 172px;
+	float:none;
+	margin: 0;
+}
+
+.simple_form select {
+	font-family: 'Yanone Kaffeesatz', serif;
+	font-size: 16px;
+	margin-bottom: 10px;
+	border: 1px solid #999;
 }

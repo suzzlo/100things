@@ -1,63 +1,11 @@
-<%= form_for(@thing) do |f| %>
-  <% if @thing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@thing.errors.count, "error") %> prohibited this thing from being saved:</h2>
+<%= simple_form_for(@thing) do |f| %>
 
-      <ul>
-      <% @thing.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<script type="text/javascript" charset="utf-8">
+	<%= f.input :name %>
+	<%= f.input :price, :as => :float %>
+	<%= f.association :category %>
+	<%= f.input :adquired, :as => :datetime %>
+	<%= f.input :notes, :as => :text %>
 	
-	$(document).ready(
+	<%= f.button :submit %>
 
-		function() {
-			$("#thing_adquired").datepicker({
-				dateFormat: 'yy-mm-dd'
-			});
-		}
-	);
-	
-</script>
-
-<table width='100%'>
-	<tr>
-		<td><%= f.label :name %></td>
-	    <td><%= f.text_field :name %></td>
-	</tr>
-	<tr>
-		<td><%= f.label :price %></td>
-	    <td><%= f.number_field :price %> €</td>
-	</tr>
-	<tr>
-		<td><%= f.label :category_id %></td>
-	    <td><%= f.select :category_id, Category.all.map { | category | [category.name, category.id]}, :prompt => 'Select category' %></td>
-	</tr>
-	<tr>
-		<td>
-    		<%= f.label :adquired %>
-		</td>
-		<td>
-		    <%= f.text_field :adquired %>
-		</td>
-	</tr>
-	<tr>
-		<td colspan='2'>
-    		<%= f.label :notes %>
-		</td>
-	</tr>
-	<tr>
-		<td colspan='2'>
-    		<%= f.text_area :notes %>
-		</td>
-	</tr>
-</table>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
