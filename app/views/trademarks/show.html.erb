@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%= @trademark.name %>
+</p>
+
+<p>
+  <b>Web:</b>
+  <%= @trademark.web %>
+</p>
+
+
+<%= link_to 'Edit', edit_trademark_path(@trademark) %> |
+<%= link_to 'Back', trademarks_path %>

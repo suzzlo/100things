@@ -67,11 +67,6 @@
     <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
     <td><%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
-	<% if thing.notes? %>
-	<tr>
-		<td colspan='6'><%= thing.notes %></td>
-	</tr>
-	<% end %>
 <% end %>
 		</table>
 	</td>
