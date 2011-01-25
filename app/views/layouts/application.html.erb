@@ -29,29 +29,18 @@
 		</div>
 		
 		<div id="notice"><%= flash[:notice] %></div>
-		
-		<div>
-			<table width='100%'>
-				<tr>
-					<td>
-						<!-- User menu options -->
-						<div id="user_nav">
+    
+    <!-- User menu options -->
+			<div id="user_nav">
 							<% if user_signed_in? %>
-							<ul>
-								<li><%= link_to "Things", things_path %></li>
-								<li><%= link_to "Categories", categories_path %></li>
-							</ul>
+              <%= link_to "Things", things_path %> | <%= link_to "Categories", categories_path %>
 							<% end %>						
-						</div>
-					</td>
-					<td>
-						<div id='yield'>
+			</div>
+
+    <div id='yield'>
     					<%= yield %>
 						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
+            
+            
 </body>
 </html>
