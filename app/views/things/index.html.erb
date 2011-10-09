@@ -65,9 +65,11 @@
     <td><%= thing.price %> €</td>
     <td><%= thing.adquired %></td>  
 	<td align='center'>
+  <% if thing.category_id %>
 		<span id='category' style='background-color:<%= Category.find(thing.category_id).background_color %>;color:<%= Category.find(thing.category_id).text_color %>'>
 			<%= Category.find(thing.category_id).name %>
 		</span>
+    <% end %>
 	</td>
     <td><%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
