@@ -1,5 +1,7 @@
 Hundredthings::Application.routes.draw do
   
+  resources :trademarks
+
   devise_for :users, :admin
 
   resources :things, :categories
