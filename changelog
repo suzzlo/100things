@@ -1,5 +1,8 @@
-v0.0.4
-* Added 'simple_form' gem for form creation
+v0.0.6
+* Bugfix: only serach for category name when category_id exists
 
 v0.0.5
 * Project internal relaunch
+
+v0.0.4
+* Added 'simple_form' gem for form creation
