@@ -1,6 +1,13 @@
 
 <h1><%= @thing.name %></h1>
 
+<p>
+  <b>Trademark:</b>
+	<% if @thing.trademark_id %>
+  		<% trademark = Trademark.find(@thing.trademark_id) %>
+		<%= link_to trademark.name, trademark.web, :target => "_blank" %>
+	<% end %>
+</p>
 
 <p>
   <b>Price:</b>

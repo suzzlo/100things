@@ -31,11 +31,13 @@
 		<div id="notice"><%= flash[:notice] %></div>
     
     <!-- User menu options -->
-			<div id="user_nav">
-							<% if user_signed_in? %>
-              <%= link_to "Things", things_path %> | <%= link_to "Categories", categories_path %>
-							<% end %>						
-			</div>
+		<div id="user_nav">
+			<% if user_signed_in? %>
+              	<%= link_to "Things", things_path %> | 
+				<%= link_to	"Trademarks", trademarks_path %> |
+				<%= link_to "Categories", categories_path %>
+			<% end %>						
+		</div>
 
     <div id='yield'>
     					<%= yield %>

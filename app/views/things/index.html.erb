@@ -56,22 +56,23 @@
 <% thing_list.each do |thing| %>
   <tr>
 	
-    <td><%= link_to thing.name, thing %></td>
+    <td><%= link_to thing.name, edit_thing_path(thing) %></td>
+	<td>
+		<% if thing.trademark_id %>
+			<%= Trademark.find(thing.trademark_id).name %>
+		<% end %>
+	</td>
     <td><%= thing.price %> €</td>
     <td><%= thing.adquired %></td>  
 	<td align='center'>
+  <% if thing.category_id %>
 		<span id='category' style='background-color:<%= Category.find(thing.category_id).background_color %>;color:<%= Category.find(thing.category_id).text_color %>'>
 			<%= Category.find(thing.category_id).name %>
 		</span>
+    <% end %>
 	</td>
-    <td><%= link_to 'Edit', edit_thing_path(thing) %></td>
     <td><%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
-	<% if thing.notes? %>
-	<tr>
-		<td colspan='6'><%= thing.notes %></td>
-	</tr>
-	<% end %>
 <% end %>
 		</table>
 	</td>

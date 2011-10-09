@@ -1,6 +1,7 @@
 <%= simple_form_for(@thing) do |f| %>
 
 	<%= f.input :name %>
+	<%= f.association :trademark %>
 	<%= f.input :price, :as => :float %>
 	<%= f.association :category %>
 	<%= f.input :adquired, :as => :date %>
