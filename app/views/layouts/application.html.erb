@@ -2,12 +2,10 @@
 <html>
 <head>
 	<title><%= yield(:title) || "100things"%></title>
-	<%= stylesheet_link_tag 'application' %>
-	<%= stylesheet_link_tag 'jquery-ui' %>
-	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700' %>
-	<%= javascript_include_tag :defaults %>
-	<%= javascript_include_tag 'jquery-ui' %>
-	<%= javascript_include_tag 'highcharts' %>
+
+	<%= stylesheet_link_tag "application" %>
+	<%= javascript_include_tag "application" %>
+
 	<%= csrf_meta_tag %>
 	<%= yield(:head) %>
 </head>

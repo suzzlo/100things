@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.20'
+gem 'rails', '4.0.2'
+gem 'activerecord-session_store'
+gem 'protected_attributes'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -30,7 +32,10 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # end
 
 # Authentication system
-gem 'devise', '1.1.3'
+gem 'devise', '1.5.3'
 
 # Form simplifier
 gem 'simple_form'
+ 
+# jQuery is the default JavaScript library in Rails 3.1
+gem 'jquery-rails'
