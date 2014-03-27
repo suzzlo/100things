@@ -1,0 +1,64 @@
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to "100things.com", root_path, :class => 'navbar-brand' %>
+  </div>
+
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
+        <li><%= link_to "Things", things_path %></li>
+        <li><%= link_to	"Trademarks", trademarks_path %></li>
+        <li><%= link_to "Categories", categories_path %></li>
+      <% end %>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <% if user_signed_in? %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user_options"><%= current_user.email %> <span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="user_options">
+              <li>
+                  <div class="navbar-content">
+                      <div class="row">
+                          <div class="col-md-5">
+                              <img src="http://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/twDq00QDud4/s120-c/photo.jpg"
+                                  alt="Alternate Text" class="img-responsive" />
+                              <!--p class="text-center small"><a href="#">Change Photo</a></p-->
+                          </div>
+                          <div class="col-md-7">
+                              <span>Bhaumik Patel</span>
+                              <p class="text-muted small">
+                                  <%= current_user.email %></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="navbar-footer">
+                      <div class="navbar-footer-content">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <%= link_to "Change Passowrd", edit_user_registration_path, :class => "btn btn-default btn-sm" %>
+                              </div>
+                              <div class="col-md-6">
+                                  <%= link_to "Sign Out", destroy_user_session_path, :class => "btn btn-default btn-sm pull-right" %>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to "Sign up" , new_user_registration_path %></li>
+        <li><%= link_to "Sign in" , new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
