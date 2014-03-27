@@ -36,6 +36,10 @@ gem 'devise', '1.5.3'
 
 # Form simplifier
 gem 'simple_form'
- 
-# jQuery is the default JavaScript library in Rails 3.1
+
+# jQuery is the default JavaScript library in Rails
 gem 'jquery-rails'
+
+gem 'jquery-datatables-rails'
+gem 'sass-rails'
+gem 'bootstrap-sass'

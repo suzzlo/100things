@@ -1,106 +1,46 @@
+
+
 <% thing_list = Thing.find_all_by_user_id(current_user.id) %>
 
-<h1>Listing things (<%= thing_list.size %>) [<span style='text-align:right'><%= link_to 'Add New', new_thing_path %></span>]</h1>
+<div class="row">
+	<div class="col-lg-12">
+		<h1>Listing things (<%= thing_list.size %>) [<span style='text-align:right'><%= link_to 'Add New', new_thing_path %></span>]</h1>
+	</div>
+</div>
 
+<div class="row">
+	<div class="col-lg-12">
+		<table width='100%'>
+			<tr>
+				<td>
+					<table>
+		<% thing_list.each do |thing| %>
+			<tr>
 
-<script type="text/javascript" charset="utf-8">
-/*
-	$(function(){
-		new Highcharts.Chart({
-			chart: {
-				renderTo: "things_chart"
-			},
-			title: {
-				text: "Quantity of things by category"
-			},
-			plotArea: {
-				shadow: null,
-				borderWidth: null,
-				backgroundColor: null
-			},
-			tooltip: {
-				formatter: function() {
-					return '<b>'+ this.point.name +'</b>: '+ this.y +' ';
-				}
-			},
-			plotOptions: {
-				pie: {
-					allowPointSelect: true,
-					cursor: 'pointer',
-					dataLabels: {
-						enabled: false
-					},
-					showInLegend: true
-				}
-			},
-			colors: <%= raw Category.all.map { | cat | cat.background_color }.inspect %>,
-			series: [
-			{
-				type: 'pie',
-				name: 'Browser share',
-				data: <%= raw Category.all.map{ |cat| [Category.find(cat.id).name, Thing.count_by_category(cat.id)] }.inspect %>
-				
-			}]
-		});
-	});
-*/	
-</script>
-
-<!--div id="things_chart">
-</div-->
-<div>
-<table width='100%'>
-	<tr>
-		<td>
-			<table>
-<% thing_list.each do |thing| %>
-  <tr>
-	
-    <td><%= link_to thing.name, edit_thing_path(thing) %></td>
-	<td>
-		<% if thing.trademark_id %>
-			<%= Trademark.find(thing.trademark_id).name %>
+				<td><%= link_to thing.name, edit_thing_path(thing) %></td>
+			<td>
+				<% if thing.trademark_id %>
+					<%= Trademark.find(thing.trademark_id).name %>
+				<% end %>
+			</td>
+				<td><%= thing.price %> €</td>
+				<td><%= thing.adquired %></td>
+			<td align='center'>
+			<% if thing.category_id %>
+				<span id='category' style='background-color:<%= Category.find(thing.category_id).background_color %>;color:<%= Category.find(thing.category_id).text_color %>'>
+					<%= Category.find(thing.category_id).name %>
+				</span>
+				<% end %>
+			</td>
+				<td><%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %></td>
+			</tr>
 		<% end %>
-	</td>
-    <td><%= thing.price %> €</td>
-    <td><%= thing.adquired %></td>  
-	<td align='center'>
-  <% if thing.category_id %>
-		<span id='category' style='background-color:<%= Category.find(thing.category_id).background_color %>;color:<%= Category.find(thing.category_id).text_color %>'>
-			<%= Category.find(thing.category_id).name %>
-		</span>
-    <% end %>
-	</td>
-    <td><%= link_to 'Destroy', thing, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-		</table>
-	</td>
-	<td width='250px'>
-		<!-- Filters -->
-		<div id='things_filters'>
-
-			<h3><a href="#">Things Filters</a></h3>
-			<div>
-				<table>
-					<tr>
-						<td>Name</td>
-						<td>
-						</td>
-					</tr>
-					<tr>
-						<td>Category</td>
-						<td>
-						</td>
-					</tr>
-					<tr>
-						<td>Date</td>
-						<td>From:</td>
-					</tr>
 				</table>
-			</div>
-		</div>
-		</td>
-	</tr>
-</table>
+			</td>
+			<td width='250px'>
+
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>

@@ -1,12 +1,27 @@
-<%= simple_form_for(@thing) do |f| %>
 
-	<%= f.input :name %>
-	<%= f.association :trademark %>
-	<%= f.input :price, :as => :float %>
-	<%= f.association :category %>
-	<%= f.input :adquired, :as => :date %>
-	<%= f.input :notes, :as => :text %>
-	
-	<%= f.button :submit %>
 
+<%= simple_form_for @thing, :html => { :class => 'form-horizontal' } do |f| %>
+
+
+  <% if notification = f.error_notification %>
+    <div class="alert alert-error fade in">
+      <a class="close" data-dismiss="alert" href="#">&times;</a>
+      <%= notification %>
+    </div>
+  <% end %>
+
+  <legend>Thing</legend>
+		<%= f.input :name, :input_html => { :class => "span6" }, :hint => "add your thing name here" %>
+		<%= f.association :trademark, :input_html => { :class => "span6" }, :hint => "add your thing name here" %>
+		<%= f.input :price, :as => :float, :input_html => { :class => "span6" }, :hint => "add your thing name here" %>
+		<%= f.association :category, :input_html => { :class => "span6" }, :hint => "add your thing name here" %>
+		<%= f.input :adquired, :as => :date, :input_html => { :class => "span6" }, :hint => "add your thing name here" %>
+		<%= f.input :notes, :as => :text, :input_html => { :class => "span6" }, :hint => "add your thing name here" %>
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger" %>
+  </div>
 <% end %>
