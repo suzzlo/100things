@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'activerecord-session_store'
 gem 'protected_attributes'
+gem 'rails_12factor'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
