@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.0.2'
+gem 'rails'
 gem 'activerecord-session_store'
 gem 'protected_attributes'
 gem 'rails_12factor'
@@ -34,7 +34,7 @@ group :development, :test do
 end
 
 # Authentication system
-gem 'devise', '1.5.3'
+gem 'devise'
 
 # Form simplifier
 gem 'simple_form'
