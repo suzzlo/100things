@@ -35,6 +35,8 @@ end
 
 # Authentication system
 gem 'devise'
+gem 'devise-encryptable'
+
 
 # Form simplifier
 gem 'simple_form'
