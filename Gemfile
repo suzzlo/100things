@@ -1,15 +1,20 @@
+ruby "2.3.0"
+
 source 'http://rubygems.org'
 
 gem 'rails'
 gem 'activerecord-session_store'
 gem 'protected_attributes'
 gem 'rails_12factor'
+#gem 'strong_parameters'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+group :production do
+  gem 'pg'
+end
 
-gem 'pg'
 
 # Use unicorn as the web server
 gem 'unicorn'

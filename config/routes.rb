@@ -1,5 +1,7 @@
 Hundredthings::Application.routes.draw do
   
+  resources :brands
+  resources :test_deletes
   resources :trademarks
 
   devise_for :users, :admin

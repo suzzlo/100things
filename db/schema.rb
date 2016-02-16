@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140102153300) do
+ActiveRecord::Schema.define(version: 20150408172729) do
 
-  create_table "admins", force: true do |t|
-    t.string   "email",                            default: "", null: false
+  create_table "admins", force: :cascade do |t|
+    t.string   "email",                limit: 255, default: "", null: false
     t.string   "encrypted_password",   limit: 128, default: "", null: false
-    t.string   "reset_password_token"
-    t.string   "remember_token"
+    t.string   "reset_password_token", limit: 255
+    t.string   "remember_token",       limit: 255
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",                    default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",   limit: 255
+    t.string   "last_sign_in_ip",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,8 +31,16 @@ ActiveRecord::Schema.define(version: 20140102153300) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
-  create_table "categories", force: true do |t|
+  create_table "brands", force: :cascade do |t|
     t.string   "name"
+    t.text     "description"
+    t.string   "homepage"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",             limit: 255
     t.text     "description"
     t.text     "text_color"
     t.text     "background_color"
@@ -40,8 +48,8 @@ ActiveRecord::Schema.define(version: 20140102153300) do
     t.datetime "updated_at"
   end
 
-  create_table "sessions", force: true do |t|
-    t.string   "session_id", null: false
+  create_table "sessions", force: :cascade do |t|
+    t.string   "session_id", limit: 255, null: false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -50,8 +58,8 @@ ActiveRecord::Schema.define(version: 20140102153300) do
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
-  create_table "things", force: true do |t|
-    t.string   "name"
+  create_table "things", force: :cascade do |t|
+    t.string   "name",         limit: 255
     t.text     "notes"
     t.float    "price"
     t.integer  "category_id"
@@ -62,24 +70,24 @@ ActiveRecord::Schema.define(version: 20140102153300) do
     t.integer  "trademark_id"
   end
 
-  create_table "trademarks", force: true do |t|
-    t.string   "name"
-    t.string   "web"
+  create_table "trademarks", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "web",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                            default: "", null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                limit: 255, default: "", null: false
     t.string   "encrypted_password",   limit: 128, default: "", null: false
-    t.string   "reset_password_token"
-    t.string   "remember_token"
+    t.string   "reset_password_token", limit: 255
+    t.string   "remember_token",       limit: 255
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",                    default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",   limit: 255
+    t.string   "last_sign_in_ip",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
